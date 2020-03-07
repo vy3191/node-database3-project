@@ -14,8 +14,11 @@ async function add(newScheme) {
   return await db("schemes").where("id",id).first();
 }
 
-function update(updatedScheme,id) {
-  return db("schemes").where({id:id}).update(updatedScheme,id);
+async function update(updatedScheme,id) {
+  const count = await db("schemes").where({id:id}).update(updatedScheme,id);
+  if(count) {
+     return await db("schemes").where("id", id).first();
+  }
 }
 
 function remove(id) {
