@@ -9,8 +9,9 @@ function findById(id) {
   return db("schemes").where({id:id}).first();
 }
 
-function add(newScheme) {
-  return db("schemes").insert(newScheme);
+async function add(newScheme) {
+  const [id] = await db("schemes").insert(newScheme);
+  return await db("schemes").where("id",id).first();
 }
 
 function update(updatedScheme,id) {
