@@ -61,12 +61,15 @@ router.post('/', (req, res) => {
 router.post('/:id/steps', (req, res) => {
   const stepData = req.body;
   const { id } = req.params; 
-
+  console.log('stepData>>>>>>>',stepData);
+  console.log('ID>>>>>>>>',id);
   Schemes.findById(id)
   .then(scheme => {
     if (scheme) {
+      console.log('scheme>>>>', scheme)
       Schemes.addStep(stepData, id)
       .then(step => {
+        console.log("step>>>>>>>>>>",step);
         res.status(201).json(step);
       })
     } else {
@@ -85,8 +88,10 @@ router.put('/:id', (req, res) => {
   Schemes.findById(id)
   .then(scheme => {
     if (scheme) {
+      console.log("91",scheme);
       Schemes.update(changes, id)
       .then(updatedScheme => {
+        console.log('91', updatedScheme);
         res.json(updatedScheme);
       });
     } else {
