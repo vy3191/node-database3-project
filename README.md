@@ -67,7 +67,7 @@ Write helpers methods in `./schemes/scheme-model.js` that match the following sp
 | scheme_id    | unsigned integer | foreign key referencing scheme.id, required         |
 | step_number  | unsigned integer | required                                            |
 | instructions | string           | required                                            |
-
+{ id: 17, scheme_name: 'Find the Holy Grail', step_number: 1, instructions: 'quest'}
 #### API
 
 The following endpoints are available to test the functionality of the model methods.
