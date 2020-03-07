@@ -32,11 +32,19 @@ function remove(id) {
    return db("schemes").where({id:id}).del();
 }
 
+//This is a stretch goal
+async function addStep(step, scheme_id) {
+  const newStep = {...step, scheme_id};
+  const [id] =  await db("steps").insert(newStep);
+  return await db("steps").where({id:id}).first();
+}
+
 module.exports = {
   find, 
   findById,
   add,
   update,
   remove,
+  addStep,
   findSteps
 }
