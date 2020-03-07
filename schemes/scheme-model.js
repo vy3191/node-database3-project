@@ -22,7 +22,7 @@ async function add(newScheme) {
 }
 
 async function update(updatedScheme,id) {
-  const count = await db("schemes").where({id:id}).update(updatedScheme,id);
+  const count = await db("schemes").where({id:id}).update(updatedScheme);
   if(count) {
      return await db("schemes").where("id", id).first();
   }

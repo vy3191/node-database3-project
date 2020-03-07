@@ -88,7 +88,7 @@ router.put('/:id', (req, res) => {
   Schemes.findById(id)
   .then(scheme => {
     if (scheme) {
-      console.log("88",scheme);
+      console.log("91",scheme);
       Schemes.update(changes, id)
       .then(updatedScheme => {
         console.log('91', updatedScheme);
